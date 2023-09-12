@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'django_extensions',
     'django_filters',
+    'social_django',
 
     'store',
 ]
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'books.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,6 +89,11 @@ DATABASES = {
         'PORT': '5444'
     }
 }
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -140,3 +146,6 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
+SOCIAL_AUTH_JSONFIELD_ENABLED = True
+SOCIAL_AUTH_GITHUB_KEY = '3fcd7cbf848f6fef2482'
+SOCIAL_AUTH_GITHUB_SECRET = '4ecef2d1459026e52b588ac10c9dee84e9a70291'
