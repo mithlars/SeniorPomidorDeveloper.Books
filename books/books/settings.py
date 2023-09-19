@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+
     'django_extensions',
     'django_filters',
     'social_django',
@@ -139,13 +141,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
+        # 'rest_framework.renderers.BrowsableAPIRenderer',
     ),
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.AllowAny',
+    # ],
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
     ),
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ],
 }
 
 SOCIAL_AUTH_JSONFIELD_ENABLED = True
-SOCIAL_AUTH_GITHUB_KEY = '3fcd7cbf848f6fef2482'
-SOCIAL_AUTH_GITHUB_SECRET = '4ecef2d1459026e52b588ac10c9dee84e9a70291'
+# Myn app's credentials:
+SOCIAL_AUTH_GITHUB_KEY = '72fe0f81aba6d3aae55b'
+SOCIAL_AUTH_GITHUB_SECRET = '69c47de06f65e85bc72f9ec67362b029ba122233'

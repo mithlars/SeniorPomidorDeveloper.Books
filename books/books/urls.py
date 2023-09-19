@@ -26,6 +26,8 @@ router.register(r'book', BookViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('drf-auth/', include('rest_framework.urls')),
+    path('admin/', admin.site.urls),
     re_path('', include('social_django.urls', namespace='social')),
     path('auth/', auth)
 ]
